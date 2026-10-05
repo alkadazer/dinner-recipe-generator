@@ -43,6 +43,38 @@ main {
   padding: 20px 16px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.history-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .history-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    max-width: 1024px;
+  }
+
+  .current-recipe {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+
+  .history-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 h2 {
   text-align: center;
   color: #a5480e;
