@@ -52,19 +52,20 @@ section {
   margin-bottom: 36px;
 }
 
-article {
-  padding: 10px;
-  border: 1px solid #27a700;
-  border-radius: 5px;
-  background-color: #faf2e4;
-  margin-bottom: 5px;
-}
-
 .current-recipe {
   padding: 28px;
   border: 2px solid #27a700;
   border-radius: 5px;
   background-color: #e2f7dc;
+  text-align: center;
+}
+
+.history-recipe {
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #27a700;
+  border-radius: 5px;
+  background-color: #faf2e4;
 }
 
 h3 {
