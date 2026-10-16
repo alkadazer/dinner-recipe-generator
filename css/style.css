@@ -6,6 +6,9 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family:
     system-ui,
     -apple-system,
@@ -18,7 +21,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.5;
   background-color: #faf7f2;
   color: #222;
@@ -30,9 +33,9 @@ header {
   text-align: center;
 }
 
-header > h1 {
+h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: 700;
   color: #f6f6f6;
 }
@@ -41,11 +44,70 @@ main {
   max-width: 760px;
   margin: 0 auto;
   padding: 20px 16px;
+  flex: 1;
+  width: 100%;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #a5480e;
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+section {
+  margin-bottom: 36px;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+}
+
+footer {
+  padding: 16px;
+  background-color: #a5480e;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f6f6f6;
+}
+
+.current-recipe {
+  padding: 28px;
+  border: 2px solid #1d7c00;
+  border-radius: 5px;
+  background-color: #eaf5ea;
+  text-align: center;
+}
+
+.current-recipe__title {
+  margin: 0 0 10px;
+  text-align: center;
+  color: #1d7c00;
+  padding: 0px;
+}
+
+.history-recipe {
+  padding: 10px;
+  border: 1px solid #a5480e;
+  border-radius: 5px;
+  background-color: #fff6e8;
+}
+
+.history-recipe__title {
+  margin: 0 0 10px;
+  text-align: center;
+  color: #a5480e;
+  padding: 0px;
 }
 
 .history-grid {
@@ -75,48 +137,52 @@ img {
   }
 }
 
-h2 {
-  text-align: center;
-  color: #a5480e;
+h1,
+h2,
+h3,
+.accent-button {
+  font-family: "Montserrat", system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
-section {
-  margin-bottom: 36px;
-}
-
-.current-recipe {
-  padding: 28px;
-  border: 2px solid #27a700;
-  border-radius: 5px;
-  background-color: #e2f7dc;
-  text-align: center;
-}
-
-.history-recipe {
-  padding: 10px;
-  margin-bottom: 5px;
-  border: 1px solid #27a700;
-  border-radius: 5px;
-  background-color: #faf2e4;
-}
-
-h3 {
-  margin: 0 0 10px;
-  text-align: center;
-  color: #27a700;
-  padding: 0px;
-}
-
-p {
-  margin: 0;
-}
-
-footer {
-  margin: 0;
+.accent-button {
+  margin: 16px;
   padding: 16px;
-  background-color: #a5480e;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #208700;
+  font-size: 18px;
   text-align: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #f6f6f6;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 134, 45, 0.724);
+}
+
+.accent-button:hover {
+  background-color: #1d7c00;
+  transform: translateY(-2px);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 134, 45, 0.724);
+}
+
+.accent-button:active {
+  background-color: #1a7100;
+  transform: translateY(0px);
+  box-shadow: 0 4px 10px rgba(0, 140, 50, 0.724);
+}
+
+/* 
+  Обґрунтування дизайн-рішення:
+  1. Чітка вимога: кнопку «Згенерувати рецепт» реалізовано як найпомітніший елемент сторінки завдяки
+     насиченому акцентному кольору (#208700), великим відступам і високому контрасту тексту (>4.5:1).
+  2. Нечітка вимога: для відчуття інтерактивності та залучення до повторного натискання використано 
+     виразний шрифт Montserrat, плавний ефект підйому з тінню при :hover та візуальну віддачу 
+     при натисканні (:active). Картки історії рецептів нижче мають спокійніший розмір і приглушений фон.
+*/
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
