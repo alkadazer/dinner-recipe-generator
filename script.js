@@ -22,6 +22,7 @@ const resultContainer = document.querySelector("#recipe-result");
 const historyCountElement = document.querySelector("#history-count");
 const generateBtn = document.querySelector(".accent-button");
 
+// Функція видаляє наявний згенерований рецепт
 function removeCurrentRecipe() {
   const currentRecipe = document.querySelector(".current-recipe");
 
@@ -30,6 +31,7 @@ function removeCurrentRecipe() {
   }
 }
 
+// Функція замінює згенерований рецепт на новий після нажимання користувача на кнопку "Згенерувати рецепт"
 function renderRandomRecipe() {
   removeCurrentRecipe();
 
