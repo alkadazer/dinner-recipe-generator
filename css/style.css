@@ -96,6 +96,21 @@ footer {
   padding: 0px;
 }
 
+.current-recipe.vegetarian::after {
+  content: "Vegetarian";
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+  color: #1d7c00;
+  font-size: 14px;
+}
+
+#history-count {
+  margin-top: 14px;
+  font-weight: 700;
+  color: #a5480e;
+}
+
 .history-recipe {
   padding: 10px;
   border: 1px solid #a5480e;
@@ -140,7 +155,8 @@ footer {
 h1,
 h2,
 h3,
-.accent-button {
+.accent-button,
+#history-count {
   font-family: "Montserrat", system-ui, sans-serif;
   letter-spacing: -0.02em;
 }

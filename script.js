@@ -13,31 +13,50 @@ const recipes = [
   { name: "Стейк з яловичини з пюре", timeMinutes: 45, vegetarian: false },
 ];
 
+let generatedCount = 0;
+
 // Функція обирає випадковий рецепт зі списку існуючих
 const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-// Функція виводить всі рецепти зі списку існуючих
-function displayAllRecipes(recipesList) {
-  console.log("\t––––– Список всіх рецептів для вечері –––––");
+const resultContainer = document.querySelector("#recipe-result");
+const historyCountElement = document.querySelector("#history-count");
+const generateBtn = document.querySelector(".accent-button");
 
-  for (const recipe of recipesList) {
-    console.log(
-      `"${recipe.name}": готується ${recipe.timeMinutes} хв (${recipe.vegetarian ? "" : "не "}вегетаріанська)`,
-    );
+function removeCurrentRecipe() {
+  const currentRecipe = document.querySelector(".current-recipe");
+
+  if (currentRecipe) {
+    currentRecipe.remove();
   }
 }
 
-// Функція виводить випадковий рецепт зі списку існуючих, дає коротку інформацію про нього
-function generateRandomDinner() {
-  console.log("\t––––– Результат генерації випадкового рецепту –––––");
+function renderRandomRecipe() {
+  removeCurrentRecipe();
 
   const recipe = pickRandom(recipes);
 
-  console.log(`Сьогодні на вечерю рекомендуємо "${recipe.name}"`);
-  console.log(`Страва готується ${recipe.timeMinutes} хв`);
-  console.log(`Тип страви: ${recipe.vegetarian ? "" : "не "}вегетаріанська`);
+  const card = document.createElement("article");
+  card.classList.add("current-recipe");
+
+  card.dataset.time = recipe.timeMinutes;
+  if (recipe.vegetarian) {
+    card.classList.add("vegetarian");
+  }
+
+  const title = document.createElement("h3");
+  title.classList.add("current-recipe__title");
+  title.textContent = recipe.name;
+
+  const description = document.createElement("p");
+  description.textContent = `Час приготування: ${recipe.timeMinutes} хв. Смачна та збалансована страва для вашої вечері.`;
+
+  card.append(title, description);
+  resultContainer.append(card);
+
+  generatedCount++;
+  historyCountElement.textContent = `Згенеровано рецептів за сеанс: ${generatedCount}`;
 }
 
-displayAllRecipes(recipes);
-console.log();
-generateRandomDinner();
+generateBtn.addEventListener("click", renderRandomRecipe);
+
+renderRandomRecipe();
